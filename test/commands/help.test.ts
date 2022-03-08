@@ -1,5 +1,6 @@
 import {expect, test} from '@oclif/test'
 
+// eslint-disable-next-line unicorn/prefer-module
 const VERSION = require('../../package.json').version
 const UA = `@oclif/plugin-help/${VERSION} ${process.platform}-${process.arch} node-${process.version}`
 

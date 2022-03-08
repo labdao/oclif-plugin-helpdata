@@ -1,7 +1,8 @@
-import {Command, Flags, Help} from '@oclif/core'
+import {Command, Flags} from '@oclif/core'
+import HelpData from '../helpdata'
 
-export default class HelpCommand extends Command {
-  static description = 'Display help for <%= config.bin %>.'
+export default class HelpDataCommand extends Command {
+  static description = 'Emit help as structured data.'
 
   static flags = {
     'nested-commands': Flags.boolean({
@@ -17,8 +18,8 @@ export default class HelpCommand extends Command {
   static strict = false
 
   async run(): Promise<void> {
-    const {flags, argv} = await this.parse(HelpCommand)
-    const help = new Help(this.config, {all: flags['nested-commands']})
+    const {flags, argv} = await this.parse(HelpDataCommand)
+    const help = new HelpData(this.config, {all: flags['nested-commands']})
     await help.showHelp(argv)
   }
 }
