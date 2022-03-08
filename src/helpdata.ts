@@ -1,5 +1,4 @@
 import {Help, Interfaces} from '@oclif/core'
-import RootHelp from '@oclif/core/lib/help/root'
 
 const helpFlags = ['--help']
 
@@ -15,8 +14,6 @@ export default class HelpData extends Help {
 
     const state = this.config.pjson?.oclif?.state
     if (state) console.log(`${this.config.bin} is in ${state}.\n`)
-
-    const roothelp = new RootHelp(this.config, this.opts)
 
     if (!this.opts.all) {
       rootTopics = rootTopics.filter(t => !t.name.includes(':'))
